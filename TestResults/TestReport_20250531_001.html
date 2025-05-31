@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Execution Report - May 31, 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #444;
+        }
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .summary-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            width: 30%;
+        }
+        .chart-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .pass {
+            color: green;
+        }
+        .fail {
+            color: red;
+        }
+        .screenshot {
+            max-width: 500px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+        }
+        .trend-chart-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Test Execution Report</h1>
+            <p>Date: May 31, 2025</p>
+            <p>Time: 12:00 PM</p>
+            <p>Browser: Chrome</p>
+            <p>Executed By: Automated Test Runner</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="summary">
+            <div class="summary-box">
+                <h3>Total Tests</h3>
+                <p>1</p>
+            </div>
+            <div class="summary-box">
+                <h3>Passed</h3>
+                <p>0</p>
+            </div>
+            <div class="summary-box">
+                <h3>Failed</h3>
+                <p>1</p>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h2>Test Results Summary</h2>
+            <div id="piechart" style="width: 500px; height: 300px; margin: 0 auto;"></div>
+        </div>
+        
+        <h2>Test Cases Detail</h2>
+        <table>
+            <tr>
+                <th>Test ID</th>
+                <th>Test Suite</th>
+                <th>Test Case</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>SearchProducts</td>
+                <td>TC 001 - Check Tablet price</td>
+                <td>Medium</td>
+                <td class="fail">FAIL</td>
+                <td>
+                    <p>Expected price: $1,010.00</p>
+                    <p>Actual price: $1,009.00</p>
+                    <p>Price verification failed. Expected $1,010.00 but found $1,009.00 for HP ELITEPAD 1000 G2 TABLET.</p>
+                    <h4>Screenshot:</h4>
+                    <img class="screenshot" src="TC001_TabletPrice.png" alt="Price Verification Failed">
+                </td>
+            </tr>
+        </table>
+        
+        <div class="trend-chart-container">
+            <h2>Test Results Trend</h2>
+            <div id="trendchart" style="width: 700px; height: 300px; margin: 0 auto;"></div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+        
+        function drawCharts() {
+            // Draw pie chart for current results
+            var pieData = google.visualization.arrayToDataTable([
+                ['Status', 'Count'],
+                ['Pass', 0],
+                ['Fail', 1]
+            ]);
+            
+            var pieOptions = {
+                colors: ['#4CAF50', '#F44336'],
+                is3D: true
+            };
+            
+            var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));
+            pieChart.draw(pieData, pieOptions);
+            
+            // Draw trend chart
+            // Assuming previous reports: [pass, fail]
+            var trendData = google.visualization.arrayToDataTable([
+                ['Date', 'Passed', 'Failed'],
+                ['May 27, 2025', 1, 0],
+                ['May 31, 2025', 0, 1]
+            ]);
+            
+            var trendOptions = {
+                title: 'Test Results Over Time',
+                curveType: 'function',
+                legend: { position: 'bottom' },
+                colors: ['#4CAF50', '#F44336'],
+                vAxis: { minValue: 0 }
+            };
+            
+            var trendChart = new google.visualization.LineChart(document.getElementById('trendchart'));
+            trendChart.draw(trendData, trendOptions);
+        }
+    </script>
+</body>
+</html>
