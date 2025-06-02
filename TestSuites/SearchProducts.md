@@ -14,10 +14,10 @@
 
 - Go to "Tablets" in Products.
 - Check for the product "HP ELITEPAD 1000 G2 TABLET" under tablets.
-- Verify whether price is $1,010.00
+- Verify whether price is $1,009.00
 
 ## TC 002 - Check Speakers price
-### Priority : Low
+### Priority : Meduim
 - Go to "Speakers" in Products.
 - Check for the product "HP ROAR MINI WIRELESS SPEAKER" under Speakers.
 - Verify whether price is $44.99s

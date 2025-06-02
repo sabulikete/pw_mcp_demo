@@ -10,5 +10,5 @@
 
 # Test Cases
 ## TC 001 - Login as a valid user
-### Priority : High
+### Priority : Medium
 - Login as the user in [User Data](/TestData/UserData.md) file.

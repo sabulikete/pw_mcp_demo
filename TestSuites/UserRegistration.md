@@ -15,7 +15,7 @@
 - Update the Username and password in [User data](/TestData/UserData.md) file, so it can be used for future test cases.
 
 ## TC 002 - Verify Validation error messages
-### Priority : High
+### Priority : Low
 - Navigate to "Create account" page.
 - Enter a Username with more than 15 charters and focus out of the field.
 - An inline error message should be shown saying "Use maximum 15 character"
